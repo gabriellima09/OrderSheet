@@ -10,6 +10,11 @@ namespace OrderSheet.Core
         private readonly ICollection<IDomainEvent> _events;
         public IReadOnlyCollection<IDomainEvent> Events => _events.ToImmutableArray();
 
+        protected BaseAggregateRoot()
+        {
+            _events = new Collection<IDomainEvent>();
+        }
+
         protected BaseAggregateRoot(TKey key) 
             : base(key)
         {

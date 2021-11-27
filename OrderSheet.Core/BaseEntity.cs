@@ -4,7 +4,12 @@
     {
         public TKey Id { get; }
 
-        public BaseEntity(TKey key)
+        protected BaseEntity()
+        {
+
+        }
+
+        protected BaseEntity(TKey key)
         {
             Id = key;
         }
