@@ -34,7 +34,9 @@ namespace OrderSheet.Core
             return Equals(obj as object);
         }
 
+#pragma warning disable CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
         public override bool Equals(object? obj)
+#pragma warning restore CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
         {
             if (obj == null || GetType() != obj.GetType()) return false;
 

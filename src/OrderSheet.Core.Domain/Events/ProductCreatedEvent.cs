@@ -2,11 +2,11 @@
 
 namespace OrderSheet.Core.Domain.Events
 {
-    public class ProductAddedEvent : BaseDomainEvent
+    public class ProductCreatedEvent : BaseDomainEvent
     {
         public Product ProductAdded { get; }
 
-        public ProductAddedEvent(Product product)
+        public ProductCreatedEvent(Product product)
         {
             ProductAdded = product;
         }
