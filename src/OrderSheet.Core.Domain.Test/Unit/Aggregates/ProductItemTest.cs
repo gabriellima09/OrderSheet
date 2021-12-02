@@ -3,7 +3,7 @@ using OrderSheet.Core.Domain.Entities;
 using System;
 using Xunit;
 
-namespace OrderSheet.Core.Domain.Test.Aggregates
+namespace OrderSheet.Core.Domain.Test.Unit.Aggregates
 {
     public class ProductItemTest
     {

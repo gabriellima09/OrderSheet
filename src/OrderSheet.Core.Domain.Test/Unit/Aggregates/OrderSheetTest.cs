@@ -1,11 +1,9 @@
 ﻿using OrderSheet.Core.Domain.Events;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Xunit;
 
-namespace OrderSheet.Core.Domain.Test.Aggregates
+namespace OrderSheet.Core.Domain.Test.Unit.Aggregates
 {
     public class OrderSheetTest
     {

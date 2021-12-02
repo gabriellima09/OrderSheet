@@ -1,9 +1,10 @@
-﻿using OrderSheet.Core.Domain.Events;
+﻿using OrderSheet.Core.Domain.Entities;
+using OrderSheet.Core.Domain.Events;
 using System;
 using System.Linq;
 using Xunit;
 
-namespace OrderSheet.Core.Domain.Entities.Test
+namespace OrderSheet.Core.Domain.Test.Unit.Entities
 {
     public class ProductTest
     {
