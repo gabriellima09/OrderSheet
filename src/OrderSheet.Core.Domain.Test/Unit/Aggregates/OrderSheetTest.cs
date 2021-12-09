@@ -1,4 +1,5 @@
-﻿using OrderSheet.Core.Domain.Events;
+﻿using OrderSheet.Core.Domain.Entities;
+using OrderSheet.Core.Domain.Events;
 using System;
 using System.Linq;
 using Xunit;
@@ -44,7 +45,7 @@ namespace OrderSheet.Core.Domain.Test.Unit.Aggregates
         {
             decimal productPrice = 10.5m;
             int productQuantity = 1;
-            var product = new Entities.Product("Product", productPrice);
+            var product = new Product("Product", productPrice);
             Domain.Aggregates.OrderSheet orderSheet = new Domain.Aggregates.OrderSheet();
 
             orderSheet.AddProduct(productQuantity, product);
@@ -71,7 +72,7 @@ namespace OrderSheet.Core.Domain.Test.Unit.Aggregates
         {
             decimal productPrice = 10.5m;
             int productQuantity = 1;
-            var product = new Entities.Product(1, "Product", productPrice);
+            var product = new Product(1, "Product", productPrice);
 
             int quantityToAdd = 2;
 
@@ -93,7 +94,7 @@ namespace OrderSheet.Core.Domain.Test.Unit.Aggregates
         {
             decimal productPrice = 10.5m;
             int productQuantity = 1;
-            var product = new Entities.Product("Product", productPrice);
+            var product = new Product("Product", productPrice);
             Domain.Aggregates.OrderSheet orderSheet = new Domain.Aggregates.OrderSheet();
 
             orderSheet.AddProduct(productQuantity, product);
@@ -109,7 +110,7 @@ namespace OrderSheet.Core.Domain.Test.Unit.Aggregates
         {
             decimal productPrice = 10.5m;
             int productQuantity = 1;
-            var product = new Entities.Product("Product", productPrice);
+            var product = new Product("Product", productPrice);
             Domain.Aggregates.OrderSheet orderSheet = new Domain.Aggregates.OrderSheet();
 
             orderSheet.AddProduct(productQuantity, product);            
@@ -125,8 +126,8 @@ namespace OrderSheet.Core.Domain.Test.Unit.Aggregates
         {
             decimal productPrice = 10.5m;
             int productQuantity = 1;
-            var product = new Entities.Product("Product", productPrice);
-            var product2 = new Entities.Product("Product", productPrice);
+            var product = new Product("Product", productPrice);
+            var product2 = new Product("Product", productPrice);
 
             Domain.Aggregates.OrderSheet orderSheet = new Domain.Aggregates.OrderSheet();
 
@@ -148,7 +149,7 @@ namespace OrderSheet.Core.Domain.Test.Unit.Aggregates
         {
             Domain.Aggregates.OrderSheet orderSheet = new Domain.Aggregates.OrderSheet();
 
-            orderSheet.AddProduct(productQuantity, new Entities.Product("Product", productPrice));
+            orderSheet.AddProduct(productQuantity, new Product("Product", productPrice));
 
             Assert.NotEmpty(orderSheet.Items);
             Assert.Equal(orderSheet.Total, productPrice * productQuantity);
@@ -163,7 +164,7 @@ namespace OrderSheet.Core.Domain.Test.Unit.Aggregates
         public void OrderSheetChangeProductQuantity(int productQuantity)
         {
             Domain.Aggregates.OrderSheet orderSheet = new Domain.Aggregates.OrderSheet();
-            var product = new Entities.Product("Product", 10.5m);
+            var product = new Product("Product", 10.5m);
 
             orderSheet.AddProduct(1, product);
             orderSheet.ChangeProductQuantity(productQuantity, product);
@@ -177,7 +178,7 @@ namespace OrderSheet.Core.Domain.Test.Unit.Aggregates
         [Trait("Domain", "Behavior")]
         public void OrderSheetChangeProductQuantityThrowsException()
         {
-            var product = new Entities.Product("Product", 10m);
+            var product = new Product("Product", 10m);
             Domain.Aggregates.OrderSheet orderSheet = new Domain.Aggregates.OrderSheet();
 
             Assert.Throws<ArgumentNullException>(() => orderSheet.ChangeProductQuantity(1, null));

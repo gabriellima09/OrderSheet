@@ -37,7 +37,7 @@ namespace OrderSheet.Core.Domain.Entities
 
         public void ChangePrice(decimal newPrice)
         {
-            Price = Price = newPrice <= 0 ?
+            Price = newPrice <= 0 ?
                 throw new ArgumentOutOfRangeException("The price must not be less than or equals to zero")
                 : newPrice;
 
